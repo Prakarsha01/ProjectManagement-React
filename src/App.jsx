@@ -12,6 +12,10 @@ function App() {
     projectList: [],
   });
 
+  function handleResetPage(){
+    setNewProjectBtn(false);
+  }
+
   function addNewProject(newProject) {
     const updatedProjectList = [...projectState.projectList, newProject];
     setProjectState((prevState) => ({
@@ -77,7 +81,7 @@ function App() {
       selectedProjectId: undefined,
       projectList: updatedProjectList,
     }));
-    setNewProjectBtn(false);
+    handleResetPage();
   }
 
   if (projectState.selectedProjectId) {
@@ -97,6 +101,7 @@ function App() {
       <NewProject
         addNewProject={addNewProject}
         projects={projectState.projectList}
+        cancelNewProject={handleResetPage}
       />
     ) : (
       <DefaultPage createProject={handleCreateProject} />

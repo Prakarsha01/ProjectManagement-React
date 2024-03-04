@@ -1,9 +1,16 @@
 import { useRef } from "react";
 
+import Modal from "./Modal";
+
 export default function ProjectPage({ projectDetails, addTask, clearTask, deleteProject}) {
   const taskRef = useRef();
+  const errorModal = useRef();
 
   function handleAddTask() {
+    if (!taskRef.current.value){
+        errorModal.current.open();
+        return null;
+      }
     addTask(projectDetails.id, taskRef.current.value);
     taskRef.current.value = null;
   }
@@ -23,9 +30,13 @@ export default function ProjectPage({ projectDetails, addTask, clearTask, delete
     return formattedDate;
   }
 
-  function handleClear() {}
-
   return (
+    <>
+    <Modal ref={errorModal} buttonCaption="Okay">
+        <h2 className="font-bold">Invalid Input!</h2>
+        <p>Oops... looks like you forgot to enter a task.</p>
+        <p>Please make sure you provide a valid value for the input field.</p>
+    </Modal>
     <div className="basis-4/5 flex flex-col items-start pl-10 pr-60 mt-24">
       <div className="flex mb-5 w-full justify-between">
         <h1 className="text-black font-bold text-4xl">
@@ -62,5 +73,6 @@ export default function ProjectPage({ projectDetails, addTask, clearTask, delete
         })}
       </ul>
     </div>
+    </>
   );
 }

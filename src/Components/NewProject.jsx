@@ -1,12 +1,19 @@
 import { useRef, useState } from "react"
 import Input from "./Input"
+import Modal from "./Modal";
 
-export default function NewProject({addNewProject, projects}){
+export default function NewProject({addNewProject, projects, cancelNewProject}){
+  const errorModal = useRef();
   const titleRef = useRef();
   const descriptionRef = useRef();
   const dateRef = useRef();
 
   function handleSave(){
+   
+    if (!titleRef.current.value||!descriptionRef.current.value || !dateRef.current.value ){
+      errorModal.current.open();
+      return null;
+    }
     let projectId;
     if (projects.length>=1){
       projectId = projects[projects.length - 1].id+1
@@ -21,16 +28,23 @@ export default function NewProject({addNewProject, projects}){
       tasks:[]
     };
     addNewProject(newProject);
-    // Clearing the input fields
     handleCancel();
   }
 
   function handleCancel(){
-    titleRef.current.value = null;
-    descriptionRef.current.value = null;
-    dateRef.current.value = null;
+    titleRef.current.value = "";
+    descriptionRef.current.value = "";
+    dateRef.current.value = "";
+    cancelNewProject();
   }
+
     return(
+      <>
+      <Modal ref={errorModal} buttonCaption="Okay">
+        <h2 className="font-bold pb-4 text-2xl" >Invalid Input!</h2>
+        <p>Oops... looks like you forgot to enter a value.</p>
+        <p>Please make sure you provide a valid value for every input field.</p>
+      </Modal>
         <div className="mt-16  flex">
         <div className="flex-col">
           <menu className="flex justify-center basis-4/5">
@@ -44,5 +58,6 @@ export default function NewProject({addNewProject, projects}){
         </div>
         </div>
       </div>
+      </>
     )
 }
