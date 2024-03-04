@@ -29,4 +29,4 @@ This project is a simple project management application built using React. It al
 2. Navigate to the project directory.
 3. Install dependencies using `npm install`.
 4. Start the development server using `npm run dev`.
-5. Open your web browser and go to  the provided localhost address to view the game.
+5. Open your web browser and go to  the provided localhost address to use the App.
