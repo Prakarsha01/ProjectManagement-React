@@ -23,3 +23,10 @@ This project is a simple project management application built using React. It al
 - **ProjectPage.jsx:** Component displaying the details of a selected project, including tasks and options to add, mark, or delete tasks.
 - **Sidebar.jsx:** Component displaying a list of existing projects and providing options to create, select, or delete projects.
 
+## Getting Started
+
+1. Clone this repository to your local machine.
+2. Navigate to the project directory.
+3. Install dependencies using `npm install`.
+4. Start the development server using `npm run dev`.
+5. Open your web browser and go to  the provided localhost address to view the game.
