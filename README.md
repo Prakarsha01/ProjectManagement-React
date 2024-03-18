@@ -30,3 +30,19 @@ This project is a simple project management application built using React. It al
 3. Install dependencies using `npm install`.
 4. Start the development server using `npm run dev`.
 5. Open your web browser and go to  the provided localhost address to use the App.
+
+## Snippets of the App
+
+![image](https://github.com/Prakarsha01/ProjectManagement-React/assets/67196711/7fecd04f-f1c8-44a4-a8ed-a604312fe172)
+
+![image](https://github.com/Prakarsha01/ProjectManagement-React/assets/67196711/359920ff-3f6d-4735-a2cc-014d84898f61)
+
+![image](https://github.com/Prakarsha01/ProjectManagement-React/assets/67196711/b2d64d58-2a7c-4543-9fd0-a52c428c53fd)
+
+
+
+
+---
+## Acknowledgments
+
+This project is part of the ["React - The Complete Guide 2024 (incl. React Router & Redux)"](https://www.udemy.com/course/react-the-complete-guide-incl-redux/) course on Udemy, which provides comprehensive training on React and its ecosystem. Special thanks to the course instructor for the guidance and inspiration. I had to replicate the project from seeing a video of it working, 
